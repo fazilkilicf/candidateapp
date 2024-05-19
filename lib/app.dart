@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'config/config.dart';
+import 'core/core.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
       builder: (ctx, child) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: context.l10n.app_name,
+          title: TextConstants.appName,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           localizationsDelegates: AppLocalizations.localizationsDelegates,

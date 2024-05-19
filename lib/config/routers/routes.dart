@@ -5,8 +5,15 @@ import 'routes_provider.dart';
 
 final routes = [
   GoRoute(
+    name: RouteLocation.splash,
     path: RouteLocation.splash,
     parentNavigatorKey: navigationKey,
     builder: SplashScreen.builder,
+  ),
+  GoRoute(
+    name: RouteLocation.login,
+    path: RouteLocation.login,
+    parentNavigatorKey: navigationKey,
+    builder: LoginScreen.builder,
   ),
 ];

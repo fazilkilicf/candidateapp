@@ -1,5 +1,5 @@
 class TextConstants {
   TextConstants._();
 
-  static const String appName = "AppName";
+  static const String appName = "Candidate App";
 }

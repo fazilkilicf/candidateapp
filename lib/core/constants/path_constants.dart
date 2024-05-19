@@ -1,5 +1,5 @@
 class PathConstants {
   PathConstants._();
 
-  static const String logo = 'assets/logo.png';
+  static const String logo = 'assets/images/logo.png';
 }
