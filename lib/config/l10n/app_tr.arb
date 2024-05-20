@@ -1,3 +1,15 @@
 {
-    "app_name":"Uygulama Adı"
+    "app_name":"Uygulama Adı",
+    "login_body_text": "Lütfen kullanıcı adınızı ve şifrenizi girin.",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "login_text": "Giriş",
+    "save": "Kaydet",
+    "no_such_username_error": "Böyle bir kullanıcı adı bulunmamaktadır!",
+    "navigate": "Yönlen",
+    "relocate": "Yeniden Yerleştir",
+    "next_collection_text": "Bir Sonraki Toplama",
+    "fullness_rate_text": "Doluluk Oranı",
+    "select_location_text": "Lütfen haritadan bir konum seçin ve çöp kutunuzun yeniden yerleştirileceği yer. Bir konumu haritaya dokunarak seçebilirsiniz.",
+    "relocated_successfully_text": "Çöp kutunuz başarıyla yeniden yerleştirildi!"
 }

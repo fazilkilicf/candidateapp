@@ -11,6 +11,7 @@ class Sizes {
   static const p32 = 32.0;
   static const p48 = 48.0;
   static const p64 = 64.0;
+  static const p120 = 120.0;
 }
 
 /// Constant gap widths
@@ -34,3 +35,4 @@ final gapH24 = SizedBox(height: Sizes.p24.h);
 final gapH32 = SizedBox(height: Sizes.p32.h);
 final gapH48 = SizedBox(height: Sizes.p48.h);
 final gapH64 = SizedBox(height: Sizes.p64.h);
+final gapH120 = SizedBox(height: Sizes.p120.h);

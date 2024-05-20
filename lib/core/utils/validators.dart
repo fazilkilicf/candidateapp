@@ -10,4 +10,16 @@ class Validator {
     }
     return true;
   }
+
+  static bool validateIsNotEmpty({required String? input, int? minLength}) {
+    if (input == null || input.isEmpty) {
+      return false;
+    }
+    if (minLength != null) {
+      if (input.length < minLength) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

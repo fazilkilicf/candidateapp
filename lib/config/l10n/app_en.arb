@@ -1,3 +1,16 @@
 {
-    "app_name":"App Name"
+    "app_name": "App Name",
+    "login_body_text": "Please enter your user name and password.",
+    "username": "Username",
+    "password": "Password",
+    "login_text": "Login",
+    "save":"Save",
+    "no_such_username_error": "There is no such username!",
+    "navigate": "Navigate",
+    "relocate": "Relocate",
+    "next_collection_text": "Next Collection",
+    "fullness_rate_text": "Fullness Rate",
+    "select_location_text": "Please select a location from the map for your bin to be relocated. You can select a location by tapping on the map.",
+    "relocated_successfully_text":"Your bin has been relocated successfully!"
+
 }
