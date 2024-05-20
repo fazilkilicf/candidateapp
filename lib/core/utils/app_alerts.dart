@@ -35,7 +35,7 @@ class AppAlerts {
                 Expanded(
                   child: Text(
                     message,
-                    style: context.textTheme.bodyMedium,
+                    style: context.textTheme.labelLarge?.copyWith(color: AppColors.darkGrey),
                     textAlign: TextAlign.left,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,

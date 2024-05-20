@@ -61,16 +61,16 @@ class _CustomTextPasswordFieldState extends State<CustomTextPasswordField> {
       validator: widget.validator,
       onChanged: (value) => widget.onChanged!(value),
       decoration: InputDecoration(
-        labelStyle: widget.labelStyle ?? context.textTheme.labelSmall,
+        labelStyle: widget.labelStyle ?? context.textTheme.labelSmall?.copyWith(color: AppColors.darkGrey),
         hintStyle: widget.hintStyle ?? context.textTheme.labelLarge,
         contentPadding: const EdgeInsets.only(bottom: 3.5),
         isDense: true,
         enabledBorder: widget.border ??
             UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.shadowColor)),
+                borderSide: BorderSide(color: AppColors.shadowColor,width: 2.0)),
         focusedBorder: widget.focusedBorder ??
             const UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.yellow)),
+                borderSide: BorderSide(color: AppColors.yellow,width: 2.0)),
         suffix: GestureDetector(
           onTap: () => setState(() => _isObscure = !_isObscure),
           child: Image.asset(PathConstants.visibilityIcon,

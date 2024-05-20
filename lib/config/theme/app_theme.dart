@@ -16,6 +16,7 @@ class AppTheme {
         backgroundColor: AppColors.greenButton,
         disabledBackgroundColor: AppColors.greenButton.withOpacity(0.3),
         textStyle: AppTextTheme.textLightTheme.bodyLarge,
+        disabledForegroundColor: AppColors.lightColor
       )),
       snackBarTheme:
           const SnackBarThemeData(behavior: SnackBarBehavior.floating));
@@ -33,6 +34,7 @@ class AppTheme {
       backgroundColor: AppColors.greenButton,
       disabledBackgroundColor: AppColors.greenButton.withOpacity(0.3),
       textStyle: AppTextTheme.textLightTheme.bodyLarge,
+      disabledForegroundColor: AppColors.lightColor
     )),
   );
 }

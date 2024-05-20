@@ -42,57 +42,59 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Expanded(
                     child: SingleChildScrollView(
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        gapH120,
-                        const BrandLogoWidget(),
-                        gapH64,
-                        Text(
-                          context.l10n.login_body_text,
-                          textAlign: TextAlign.left,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: context.textTheme.headlineMedium
-                              ?.copyWith(color: AppColors.darkGrey),
-                        ),
-                        gapH48,
-                        CustomTextFormField(
-                          controller: _usernameController,
-                          labelText: context.l10n.username,
-                          hintText: context.l10n.username,
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              _usernameController.clear();
-                              isEmpty();
-                            },
-                            child: Image.asset(
-                              PathConstants.deleteIcon,
-                              width: 20.w,
-                              height: 20.h,
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            gapH120,
+                            const BrandLogoWidget(),
+                            gapH64,
+                            Text(
+                              context.l10n.login_body_text,
+                              textAlign: TextAlign.left,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.textTheme.headlineLarge
+                                  ?.copyWith(color: AppColors.darkGrey),
                             ),
-                          ),
-                          hasError: _hasError,
-                          errorIcon: Image.asset(
-                            PathConstants.errorIcon,
-                            width: 26.w,
-                            height: 23.h,
-                          ),
-                          onChanged: (p0) => isEmpty(),
+                            gapH48,
+                            CustomTextFormField(
+                              controller: _usernameController,
+                              labelText: context.l10n.username,
+                              hintText: context.l10n.username,
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  _usernameController.clear();
+                                  isEmpty();
+                                },
+                                child: Image.asset(
+                                  PathConstants.deleteIcon,
+                                  width: 20.w,
+                                  height: 20.h,
+                                ),
+                              ),
+                              hasError: _hasError,
+                              errorIcon: Image.asset(
+                                PathConstants.errorIcon,
+                                width: 26.w,
+                                height: 23.h,
+                              ),
+                              onChanged: (p0) => isEmpty(),
+                            ),
+                            gapH32,
+                            CustomTextPasswordField(
+                              controller: _passwordController,
+                              labelText: context.l10n.password,
+                              hintText: context.l10n.password,
+                              onChanged: (p0) => isEmpty(),
+                            ),
+                            Padding(padding: MediaQuery.of(context).padding)
+                          ],
                         ),
-                        gapH32,
-                        CustomTextPasswordField(
-                          controller: _passwordController,
-                          labelText: context.l10n.password,
-                          hintText: context.l10n.password,
-                          onChanged: (p0) => isEmpty(),
-                        ),
-                      ],
-                    ),
-                  ),
-                )),
+                      ),
+                    )),
+
                 // Button
                 CustomElevatedButton(
                   buttonWidth: DeviceUtility.getScreenWidth(context),
@@ -111,6 +113,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   _login() {
     // To Do: login Firebase
+    AppAlerts.displaySnackbar(
+        context: context, message: context.l10n.no_such_username_error);
+    setState(() {
+      _hasError = true;
+    });
   }
 
   String isEmpty() {

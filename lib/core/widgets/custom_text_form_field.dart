@@ -48,7 +48,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       controller: widget.controller,
       style: widget.textStyle ??
-          context.textTheme.labelLarge?.copyWith(color: AppColors.darkGrey),
+          context.textTheme.labelLarge?.copyWith(
+              color: (widget.hasError ?? false)
+                  ? AppColors.errorColor
+                  : AppColors.darkGrey),
       cursorHeight: 16,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       validator: widget.validator,
@@ -57,7 +60,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         widget.onChanged!(value);
       },
       decoration: InputDecoration(
-        labelStyle: widget.labelStyle ?? context.textTheme.labelSmall,
+        labelStyle: widget.labelStyle ??
+            context.textTheme.labelSmall?.copyWith(
+                color: (widget.hasError ?? false)
+                    ? AppColors.errorColor
+                    : AppColors.darkGrey),
         hintStyle: widget.hintStyle ?? context.textTheme.labelLarge,
         contentPadding: const EdgeInsets.only(bottom: 3.5),
         isDense: true,
@@ -66,10 +73,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 borderSide: BorderSide(
                     color: (widget.hasError ?? false)
                         ? AppColors.errorColor
-                        : AppColors.shadowColor)),
+                        : AppColors.shadowColor,
+                    width: 2.0)),
         focusedBorder: widget.focusedBorder ??
-            const UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColors.yellow)),
+            UnderlineInputBorder(
+                borderSide: BorderSide(
+                    color: (widget.hasError ?? false)
+                        ? AppColors.errorColor
+                        : AppColors.yellow,
+                    width: 2.0)),
         suffix: _isEmpty ? null : widget.suffixIcon,
         suffixIcon: (widget.hasError ?? false)
             ? Padding(
