@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton(
-      {super.key,
-      this.text,
-      this.textColor,
-      this.backgroundColor,
-      this.buttonWidth,
-      this.buttonHeight,
-      this.onPressed,
-      this.enable = true});
+  const CustomElevatedButton({
+    super.key,
+    this.text,
+    this.textColor,
+    this.backgroundColor,
+    this.buttonWidth,
+    this.buttonHeight,
+    this.onPressed,
+    this.enable = true,
+    this.isLoading = false,
+  });
 
   final String? text;
   final Color? textColor;
@@ -19,6 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
   final double? buttonHeight;
   final Function()? onPressed;
   final bool? enable;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,11 @@ class CustomElevatedButton extends StatelessWidget {
       width: buttonWidth ?? 304.w,
       height: buttonHeight ?? 43.h,
       child: ElevatedButton(
-        onPressed: (enable ?? true) ? onPressed : null,
+        onPressed: (isLoading ?? false)
+            ? null
+            : (enable ?? true)
+                ? onPressed
+                : null,
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
             foregroundColor: textColor,
@@ -34,7 +41,9 @@ class CustomElevatedButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0.r),
             )),
-        child: Text(text ?? ""),
+        child: (isLoading ?? false)
+            ? const CircularProgressIndicator()
+            : Text(text ?? ""),
       ),
     );
   }

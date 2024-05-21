@@ -3,4 +3,5 @@ class RouteLocation {
   //routeLocation
   static String get splash => '/';
   static String get login => '/login';
+  static String get operation => '/operation';
 }

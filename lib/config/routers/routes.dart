@@ -1,7 +1,7 @@
+
 import 'package:go_router/go_router.dart';
 import '../../features/features.dart';
-import 'routes_location.dart';
-import 'routes_provider.dart';
+import '../config.dart';
 
 final routes = [
   GoRoute(
@@ -15,5 +15,11 @@ final routes = [
     path: RouteLocation.login,
     parentNavigatorKey: navigationKey,
     builder: LoginScreen.builder,
+  ),
+  GoRoute(
+    name: RouteLocation.operation,
+    path: RouteLocation.operation,
+    parentNavigatorKey: navigationKey,
+    builder: OperationScreen.builder,
   ),
 ];

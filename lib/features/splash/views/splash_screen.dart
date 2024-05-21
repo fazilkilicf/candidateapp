@@ -1,7 +1,9 @@
 import 'package:candidateapp/config/routers/routers.dart';
 import 'package:candidateapp/core/core.dart';
+import 'package:candidateapp/features/auth/controller/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   static SplashScreen builder(
@@ -32,8 +34,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> delayedFunc() async {
     debugPrint("@SplashScreen delayedFunc: 500ms");
-    Future.delayed(const Duration(milliseconds: 500), () async {
-      context.goNamed(RouteLocation.login);
+    Future.delayed(const Duration(milliseconds: 1000), () async {
+      final authProvider = Provider.of<AuthController>(context, listen: false);
+      final isAuth = authProvider.hasAuth;
+
+      if (!isAuth) {
+        // If there's no Auth, let's clear local storage.
+        debugPrint("there's no auth");
+        if (mounted) context.goNamed(RouteLocation.login);
+      } else {
+        debugPrint("has auth");
+        if (mounted) context.goNamed(RouteLocation.operation);
+      }
     });
   }
 }

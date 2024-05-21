@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/constants.dart';
-import '../../../core/utils/shared_prefs.dart';
+import '../../../core/core.dart';
 
 
 class ThemeProvider extends ChangeNotifier {

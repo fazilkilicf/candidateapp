@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'config/config.dart';
 import 'core/core.dart';
 
+
 class App extends StatelessWidget {
   const App({super.key});
 
